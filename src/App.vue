@@ -10,6 +10,7 @@ import {
 import LinkHovercard from "@/components/ui/misc/LinkHovercard.vue";
 import { ExternalLink } from 'lucide-vue-next';
 import MiniBento from "@/components/MiniBento.vue";
+import MediaCard from "@/components/MediaCard.vue";
 </script>
 
 <template>
@@ -35,8 +36,8 @@ import MiniBento from "@/components/MiniBento.vue";
           <LinkHovercard text="whis" no-padding>
 
             <div class="flex justify-between space-x-4">
-                <img src="../src/assets/whis-popover.jpg" class="rounded-md object-cover w-full"/>
-              <div class="space-y-2">
+                <div class="basis-1/4"><img src="../src/assets/whis-popover.jpg" class="rounded-md object-cover w-full h-full"/></div>
+              <div class="basis-3/4 space-y-2">
                 <h4 class="text-sm font-semibold">
                   Whis (ウイス)
                 </h4>
@@ -54,20 +55,66 @@ import MiniBento from "@/components/MiniBento.vue";
         </p>
 
         <!-- TODO: Alt text for links for them restarted ppl-->
-				<div class="grid auto-rows-min gap-4 md:grid-cols-3 items-stretch">
+				<div class="grid grid-cols-1 auto-rows-min gap-4 lg:grid-cols-3 items-stretch">
           <MiniBento image-link="../src/assets/Netflix_2015_N_logo.svg.png" label="Currently watching" description="Devil May Cry (2025)">
-            <div class="flex flex-row">
-            <a href="https://www.netflix.com/de-en/title/81506915" alt="#" target="_blank" class="w-full rounded-md border cursor-pointer overflow-hidden"><img src="../src/assets/DMC_Netflix.png" class="w-full object-cover transition-transform duration-700 ease-in-out hover:scale-110"/></a>
+            <div class="flex flex-row h-full">
+            <a href="https://www.netflix.com/de-en/title/81506915" alt="#" target="_blank" class="w-full rounded-md border cursor-pointer overflow-hidden"><img src="../src/assets/DMC_Netflix.png" class="h-full object-cover transition-transform duration-700 ease-in-out hover:scale-110"/></a>
             </div>
           </MiniBento>
-          <MiniBento image-link="../src/assets/Spotify_Primary_Logo_RGB_Green.png" label="Currently listening" description="we are all going to die">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6DsPxCyJ60nqSCEMkUSdDs?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+         <MiniBento
+              image-link="../src/assets/Spotify_Primary_Logo_RGB_Green.png"
+              label="Currently listening"
+              description="@marinawhis"
+          >
+            <div class="flex flex-row gap-2 h-full group aspect-video">
+
+              <MediaCard class="basis-2/4"
+                  href="https://open.spotify.com/playlist/6DsPxCyJ60nqSCEMkUSdDs?si=7e4217bf106644ff/"
+                  image-src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ce94840282f7963d71d0b2910"
+                  label="View 'we are all going to die' Playlist"
+              />
+
+              <MediaCard
+                  href="https://open.spotify.com/playlist/0CgoBf49QomCeNNlYHv3oe?si=165b0fc063104e90/"
+                  image-src="../src/assets/come-playlist.jpg"
+                  label="View 'Come again?' Playlist"
+              />
+
+              <MediaCard
+                  href="https://open.spotify.com/playlist/0CgoBf49QomCeNNlYHv3oe?si=165b0fc063104e90/"
+                  image-src="https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf3629ac7f97293c6c0eeb9eb"
+                  label="View '-Shoegaze & Dream Pop' Playlist"
+              />
+
+            </div>
           </MiniBento>
-          <MiniBento image-link="../src/assets/Steam_icon_logo.svg.png" label="Currently playing" description="Titles on Steam">
-            <div class="flex flex-row justify-between items-stretch gap-4">
-              <a href="https://store.steampowered.com/app/2456740/inZOI/" alt="#" target="_blank" class="rounded-md border cursor-pointer overflow-hidden"><img src="../src/assets/inzoi-thumbnail.jpg" class="h-full object-cover transition-transform duration-700 ease-in-out hover:scale-110"/></a>
-              <a href="https://store.steampowered.com/app/2001120/Split_Fiction/" alt="#" target="_blank" class="rounded-md border cursor-pointer overflow-hidden"><img src="../src/assets/splitfiction-thumbnail.jpg" class="h-full object-cover transition-transform duration-700 ease-in-out hover:scale-110"/></a>
-              <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" alt="#" target="_blank" class="rounded-md border cursor-pointer overflow-hidden"><img src="../src/assets/baldurs-gate-3.jpg" class="h-full object-cover transition-transform duration-700 ease-in-out hover:scale-110"/></a>
+
+          <MiniBento
+              image-link="../src/assets/Steam_icon_logo.svg.png"
+              label="Currently playing"
+              description="Titles on Steam">
+
+            <div class="flex flex-row gap-2 h-full group aspect-video overflow-hidden">
+
+              <MediaCard
+                         href="https://store.steampowered.com/app/2456740/inZOI/"
+                         image-src="../src/assets/inzoi-thumbnail.jpg"
+                         label="View 'Inzoi' on Steam"
+              />
+
+              <MediaCard
+                  href="https://store.steampowered.com/app/2001120/Split_Fiction/"
+                  image-src="../src/assets/splitfiction-thumbnail.jpg"
+                  label="View 'Split Fiction' on Steam"
+              />
+
+              <MediaCard
+                  href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/"
+                  image-src="../src/assets/baldurs-gate-3.jpg"
+                  label="View 'Baldur's Gate 3' on Steam"
+              />
+
             </div>
           </MiniBento>
 				</div>

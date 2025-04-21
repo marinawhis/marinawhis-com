@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
 
-  <div class="bg-muted/50 rounded-xl p-4 space-y-4 border">
+  <div class="bg-muted/50 rounded-xl p-4 space-y-4 border flex flex-col">
     <div class="flex items-center space-x-3">
       <img :src="imageLink" class="object-contain h-8"/>
       <div class="space-y-0">
