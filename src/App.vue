@@ -57,9 +57,14 @@ import MediaCard from "@/components/MediaCard.vue";
         <!-- TODO: Alt text for links for them restarted ppl-->
 				<div class="grid grid-cols-1 auto-rows-min gap-4 lg:grid-cols-3 items-stretch">
           <MiniBento image-link="../src/assets/Netflix_2015_N_logo.svg.png" label="Currently watching" description="Devil May Cry (2025)">
-            <div class="flex flex-row h-full">
-            <a href="https://www.netflix.com/de-en/title/81506915" alt="#" target="_blank" class="w-full rounded-md border cursor-pointer overflow-hidden"><img src="../src/assets/DMC_Netflix.png" class="h-full object-cover transition-transform duration-700 ease-in-out hover:scale-110"/></a>
+            <div class="flex flex-row gap-2 h-full group aspect-video">
+              <MediaCard class="basis-4/4"
+                         href="https://www.netflix.com/de-en/title/81506915"
+                         image-src="../src/assets/DMC_Netflix.png"
+                         label="Watch 'Devil May Cry' on Netflix"
+              />
             </div>
+
           </MiniBento>
 
          <MiniBento
