@@ -13,7 +13,7 @@ import {
   SidebarMenu,
   SidebarMenuAction,
   SidebarMenuButton,
-  SidebarMenuItem,
+  SidebarMenuItem, SidebarMenuSubButton,
   useSidebar,
 } from '@/components/ui/sidebar'
 import {
@@ -23,11 +23,13 @@ import {
   MoreHorizontal,
   Trash2,
 } from 'lucide-vue-next'
+import type {RouteLocation} from "vue-router";
 
 defineProps<{
   projects: {
     name: string
-    url: string
+    url?: string
+    to?: RouteLocation
     icon: LucideIcon
   }[]
 }>()
@@ -41,7 +43,11 @@ const { isMobile } = useSidebar()
     <SidebarMenu>
       <SidebarMenuItem v-for="item in projects" :key="item.name">
         <SidebarMenuButton as-child>
-          <a :href="item.url">
+          <RouterLink v-if="!!item.to" :to="item.to">
+            <component :is="item.icon" />
+            <span>{{ item.name }}</span>
+          </RouterLink>
+          <a v-else :href="item.url" rel="noopener">
             <component :is="item.icon" />
             <span>{{ item.name }}</span>
           </a>

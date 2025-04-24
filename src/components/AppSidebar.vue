@@ -3,8 +3,6 @@ import type { SidebarProps } from '@/components/ui/sidebar'
 
 import NavMain from '@/components/NavMain.vue'
 import NavProjects from '@/components/NavProjects.vue'
-import NavUser from '@/components/NavUser.vue'
-import TeamSwitcher from '@/components/TeamSwitcher.vue'
 import {
   Sidebar,
   SidebarContent,
@@ -14,12 +12,9 @@ import {
 } from '@/components/ui/sidebar'
 
 import {
-  AudioWaveform,
   BookOpen,
   Bot,
-  Command,
   Frame,
-  GalleryVerticalEnd,
   Map,
   PieChart,
   Settings2,
@@ -122,7 +117,7 @@ const data = {
   projects: [
     {
       name: 'Design Engineering',
-      url: '#',
+      to: {name:"Test"},
       icon: Frame,
     },
     {
@@ -142,12 +137,15 @@ const data = {
 <template>
   <Sidebar v-bind="props">
     <SidebarHeader>
+      <!--LOGO HERE-->
       <slot/>
     </SidebarHeader>
+
     <SidebarContent>
       <NavMain :items="data.navMain" />
       <NavProjects :projects="data.projects" />
     </SidebarContent>
+
     <SidebarFooter>
       <slot/>
     </SidebarFooter>

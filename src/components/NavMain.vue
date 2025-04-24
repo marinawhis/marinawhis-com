@@ -15,16 +15,19 @@ import {
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar'
 import { ChevronRight, type LucideIcon } from 'lucide-vue-next'
+import type { RouteLocation } from "vue-router"
 
 defineProps<{
   items: {
     title: string
-    url: string
+    url?: string
+    to?: RouteLocation
     icon?: LucideIcon
     isActive?: boolean
     items?: {
       title: string
-      url: string
+      url?: string
+      to?: RouteLocation
     }[]
   }[]
 }>()
@@ -53,7 +56,10 @@ defineProps<{
             <SidebarMenuSub>
               <SidebarMenuSubItem v-for="subItem in item.items" :key="subItem.title">
                 <SidebarMenuSubButton as-child>
-                  <a :href="subItem.url">
+                  <RouterLink v-if="!!subItem.to" :to="subItem.to">
+                    <span>{{ subItem.title }}</span>
+                  </RouterLink>
+                  <a v-else :href="subItem.url" rel="noopener">
                     <span>{{ subItem.title }}</span>
                   </a>
                 </SidebarMenuSubButton>
