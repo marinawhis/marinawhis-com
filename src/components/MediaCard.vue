@@ -1,6 +1,6 @@
 <!-- components/MediaCard.vue -->
 <script setup lang="ts">
-import { ExternalLink } from 'lucide-vue-next'
+import { ArrowUpRight } from 'lucide-vue-next';
 
 defineProps<{
   href: string
@@ -25,7 +25,7 @@ defineProps<{
       <div class="absolute inset-0 bg-black/50 flex items-end justify-center p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
           <span class="text-xs text-white font-bold flex items-center gap-1">
             {{label}}
-            <ExternalLink :size="14" class="inline flex-shrink-0" />
+            <ArrowUpRight :size="14" class="inline flex-shrink-0" />
           </span>
       </div>
     </a>
